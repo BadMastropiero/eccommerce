@@ -60,40 +60,40 @@ class SignUp extends Component {
                     Sign up with your email and password
                 </span>
                 <form 
-                  className="sign-up-form"
-                  onSubmit={this.handleSubmit}
+                    className="sign-up-form"
+                    onSubmit={this.handleSubmit}
                 >
                     <FormInput
-                      name='displayName' 
-                      type='text'
-                      value={displayName}  
-                      onChange={this.handleChange}
-                      label='Display Name'
-                      required
+                        name='displayName' 
+                        type='text'
+                        value={displayName}  
+                        onChange={this.handleChange}
+                        label='Display Name'
+                        required
                     /> 
                     <FormInput
-                      name='email' 
-                      type='email'
-                      value={email}  
-                      onChange={this.handleChange}
-                      label='Email'
-                      required
+                        name='email' 
+                        type='email'
+                        value={email}  
+                        onChange={this.handleChange}
+                        label='Email'
+                        required
                     /> 
                     <FormInput
-                      name='password' 
-                      type='password'
-                      value={password}  
-                      onChange={this.handleChange}
-                      label='Password'
-                      required
+                        name='password' 
+                        type='password'
+                        value={password}  
+                        onChange={this.handleChange}
+                        label='Password'
+                        required
                     /> 
                     <FormInput
-                      name='confirmPassword' 
-                      type='password'
-                      value={confirmPassword}  
-                      onChange={this.handleChange}
-                      label='Confirm Password'
-                      required
+                        name='confirmPassword' 
+                        type='password'
+                        value={confirmPassword}  
+                        onChange={this.handleChange}
+                        label='Confirm Password'
+                        required
                     /> 
 
                     <CustomButton type="submit"> SIGN UP </CustomButton>
