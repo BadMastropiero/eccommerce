@@ -12,7 +12,7 @@ const HomePage = () => {
     return (
         <div className="homepage">
             <div className="directory-menu">
-               <Directory />
+                <Directory />
             </div>
         </div>
     )
