@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 // redux
 // import { connect } from 'react-redux';
-// import { selectCollection } from '../../redux/shop/shop.selectors';
+// import { selectCollection } from '../../redux/shop/shop.selectors'
 
-// contextAPI
+// contextApi
 import CollectionsContext from './../../contexts/collections/collections.context';
 
 // components
@@ -14,26 +14,18 @@ import CollectionItem from '../../components/collection-items/collection-item.co
 import './collection.styles.scss';
 
 const CollectionPage = ({ match }) => {
-    
+    const collections = useContext(CollectionsContext)
+    const collection = collections[match.params.collectionId];
+    const { title, items } = collection;
     return (
-        <CollectionsContext.Consumer>
-           {
-               collection => {
-                   const collections = collection[match.params.collectionId];
-                   const { title, items } = collections;
-                   return (
-                    <div className='collection-page'>
-                        <h2 className='title'> {title} </h2>
-                        <div className='items'>
-                            {
-                                items.map(item => <CollectionItem key={item.id} item={item} />)
-                            }
-                        </div>
-                    </div>
-                   )
-               }
-           }
-        </CollectionsContext.Consumer>
+        <div className='collection-page'>
+            <h2 className='title'> {title} </h2>
+            <div className='items'>
+                {
+                    items.map(item => <CollectionItem key={item.id} item={item} />)
+                }
+            </div>
+        </div>
     )
 }
 
@@ -43,4 +35,4 @@ const CollectionPage = ({ match }) => {
 
 // export default connect(mapStateToProps)(CollectionPage)
 
-export default CollectionPage;
+ export default CollectionPage;

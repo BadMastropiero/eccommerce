@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Link} from 'react-router-dom';
 
 // redux
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCartHidden } from  '../../redux/cart/cart.selectors';
-import { selectCurrentUser } from '../../redux/user/user.selector';
+// import { selectCurrentUser } from '../../redux/user/user.selector';
+
+// contextApi
+import CurrentUserContext from '../../contexts/current-user/current-user.context';
 
 // components
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -18,7 +21,9 @@ import {auth} from '../../firebase/firebase.utils';
 import './header.styles.scss';
 import {ReactComponent as Logo} from  '../../assets/crown.svg';
 
-const Header = ({ currentUser, hidden }) => {
+const Header = ({ hidden }) => {
+    const currentUser = useContext(CurrentUserContext)
+
     return (
         <div className='header'>
             <Link className="logo-container" to='/'>
@@ -47,7 +52,6 @@ const Header = ({ currentUser, hidden }) => {
 }
 
 const mapStateToProps =  createStructuredSelector({
-    currentUser: selectCurrentUser,
     hidden: selectCartHidden
 })
 
